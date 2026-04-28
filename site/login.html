@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="login.css">
+    <title>Login | EcoViagens</title>
+</head>
+<body>
+    <header>
+        <h1>EcoViagens</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="login-main">
+        <div class="container-login">
+            <div class="imagem-side">
+                <div class="overlay-texto">
+                    <span>ECOVIAGENS</span>
+                    <p>Caminhando para o mundo moderno.</p>
+                </div>
+            </div>
+            
+            <div class="caixa-login">
+                <div class="header-login">
+                    <h2>Bem-vindo</h2>
+                    <p>Acesse sua conta para continuar</p>
+                </div>
+
+                <form onsubmit="fazerLogin(event)">
+                    <div class="input-group">
+                        <input type="text" id="usuario" placeholder=" " required>
+                        <label>Usuário</label>
+                        <div class="bar"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" id="senha" placeholder=" " required>
+                        <label>Senha</label>
+                        <div class="bar"></div>
+                    </div>
+
+                    <button type="submit" class="btn-login-submit">ENTRAR</button>
+                </form>
+
+                <div class="link-rodape">
+                    Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        async function fazerLogin(event) {
+            event.preventDefault();
+            
+            localStorage.setItem('usuarioLogado', 'true');
+            alert("Login realizado com sucesso!");
+            
+            const temPassagem = localStorage.getItem('passagemSelecionada');
+            window.location.href = temPassagem ? "seguros.html" : "../index.html";
+            
+            /*
+            const dados = { 
+                usuario: document.getElementById("usuario").value,
+                senha: document.getElementById("senha").value
+            };
+
+            const resposta = await fetch("http://localhost:5173/login", { 
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(dados)
+            });
+
+            if(resposta.ok) {
+                localStorage.setItem('usuarioLogado', 'true');
+                window.location.href = "index.html";
+            }
+            */
+        }
+    </script>
+</body>
+</html>

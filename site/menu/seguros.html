@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="seguros.css">
+    <title>Seguros | EcoViagens</title>
+</head>
+<body>
+    <header>
+        <h1>EcoViagens</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="transportes.html">Transportes</a></li>
+                <li><a href="#">Cruzeiros</a></li>
+                <li><a href="#">Resorts</a></li>
+                <li><a href="#">Destinos</a></li>
+                <li><a href="#">Países</a></li>
+                <li><a href="seguros.html">Seguros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="checkout-container">
+        <h2>Finalizar Reserva</h2>
+        
+        <div id="resumo-passagem" class="resumo-card">
+            </div>
+
+        <section class="planos-seguro">
+            <h3>Escolha seu Plano de Seguro</h3>
+            <div class="cards-seguro">
+                <div class="card-plano" onclick="selecionarPlano('Economico', 50)">
+                    <h4>Econômico</h4>
+                    <p>Cobertura básica para bagagem e atrasos.</p>
+                    <span class="preco-seguro">+ R$ 50,00</span>
+                </div>
+                <div class="card-plano" onclick="selecionarPlano('Executivo', 150)">
+                    <h4>Executivo</h4>
+                    <p>Cobertura total, cancelamento gratuito e VIP.</p>
+                    <span class="preco-seguro">+ R$ 150,00</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="total-section">
+            <p>Total: <span id="valor-total">R$ 0,00</span></p>
+            <button class="btn-finalizar" onclick="finalizarCompra()">CONFIRMAR PAGAMENTO</button>
+        </div>
+    </main>
+
+    <script src="seguros.js"></script>
+    <script src="../global.js"></script>
+</body>
+</html>

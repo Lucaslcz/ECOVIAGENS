@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="transportes.css">
+    <link rel="stylesheet" href="../global.css">
+    <title>Transportes | EcoViagens</title>
+</head>
+<body>
+
+    <header>
+        <h1>EcoViagens</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="transportes.html">Transportes</a></li>
+                <li><a href="#">Cruzeiros</a></li>
+                <li><a href="#">Resorts</a></li>
+                <li><a href="#">Destinos</a></li>
+                <li><a href="#">Países</a></li>
+                <li><a href="seguros.html">Seguros</a></li>
+            </ul>
+            <a href="login.html" class="btn-login">LOGIN</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="filtro-transporte">
+            <div class="container-filtro">
+                <h2>Como deseja viajar?</h2>
+                <div class="botoes-filtro">
+                    <button class="btn-transporte active" onclick="filtrar('todos')">TODOS</button>
+                    <button class="btn-transporte" onclick="filtrar('aviao')">AVIÃO</button>
+                    <button class="btn-transporte" onclick="filtrar('onibus')">ÔNIBUS</button>
+                    <button class="btn-transporte" onclick="filtrar('trem')">TREM</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="lista-passagens">
+            <div class="grid-passagens" id="passagens-container">
+                </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div class="rodape-container">
+            <div class="rodape-secao">
+                <h3>EcoViagens</h3>
+                <p>Logística inteligente para qualquer destino.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="transportes.js"></script>
+    <script src="../global.js"></script>
+</body>
+</html>

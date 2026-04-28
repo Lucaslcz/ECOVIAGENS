@@ -1,0 +1,124 @@
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #1b2d1e 0%, #0d1117 100%);
+    padding: 20px;
+    overflow: hidden;
+}
+
+.container-cadastro {
+    display: flex;
+    background-color: #161b22;
+    width: 100%;
+    max-width: 1000px;
+    height: 85vh;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+    border: 1px solid #30363d;
+}
+
+.imagem-cadastro {
+    flex: 1;
+    background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1000') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.imagem-cadastro::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to left, transparent, #161b22);
+}
+
+.caixa-cadastro {
+    flex: 1.4;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.caixa-cadastro h2 {
+    color: #f0f6fc;
+    font-size: 2rem;
+    margin-bottom: 0.4rem;
+}
+
+.caixa-cadastro p {
+    color: #8b949e;
+    margin-bottom: 1.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: #8b949e;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+}
+
+input {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    color: #f0f6fc;
+    font-size: 0.95rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+}
+
+button {
+    padding: 0.85rem;
+    background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+.link-rodape {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #8b949e;
+}
+
+.link-rodape a {
+    color: #4caf50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link-rodape a:hover {
+    color: #66bb6a;
+    text-decoration: underline;
+}
+
+/* celular */
+@media (max-width: 900px) {
+
+.container-cadastro {
+    flex-direction: column-reverse;
+    height: 90vh;
+}
+
+.imagem-cadastro {
+    min-height: 140px;
+}
+
+}
