@@ -32,20 +32,25 @@
                     <p>Acesse sua conta para continuar</p>
                 </div>
 
-                <form onsubmit="fazerLogin(event)">
+                <form onsubmit="fazerLogin(event)" autocomplete="off">
                     <div class="input-group">
                         <input type="text" id="usuario" placeholder=" " required>
                         <label>Usuário</label>
                         <div class="bar"></div>
+                        <span class="msg-erro" id="erro-usuario"></span>
                     </div>
 
-                    <div class="input-group">
+                    <div class="input-group" style="position: relative;">
                         <input type="password" id="senha" placeholder=" " required>
                         <label>Senha</label>
                         <div class="bar"></div>
+                        <span class="toggle-password" onclick="toggleSenha('senha', this)" style="position: absolute; right: 0; bottom: 8px; cursor: pointer;">🙉</span>
+                        <span class="msg-erro" id="erro-senha"></span>
                     </div>
 
-                    <button type="submit" class="btn-login-submit">ENTRAR</button>
+                    <button type="submit" class="btn-cadastro-submit">Entrar</button>
+                    
+                    <span class="msg-erro" id="erro-final" style="text-align: center; margin-top: 20px; width: 100%; display: block;"></span>
                 </form>
 
                 <div class="link-rodape">
@@ -55,34 +60,7 @@
         </div>
     </main>
 
-    <script>
-        async function fazerLogin(event) {
-            event.preventDefault();
-            
-            localStorage.setItem('usuarioLogado', 'true');
-            alert("Login realizado com sucesso!");
-            
-            const temPassagem = localStorage.getItem('passagemSelecionada');
-            window.location.href = temPassagem ? "seguros.html" : "../index.html";
-            
-            /*
-            const dados = { 
-                usuario: document.getElementById("usuario").value,
-                senha: document.getElementById("senha").value
-            };
-
-            const resposta = await fetch("http://localhost:5173/login", { 
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(dados)
-            });
-
-            if(resposta.ok) {
-                localStorage.setItem('usuarioLogado', 'true');
-                window.location.href = "index.html";
-            }
-            */
-        }
-    </script>
+    <script src="login.js"></script>
+    <script src="global.js"></script>
 </body>
 </html>

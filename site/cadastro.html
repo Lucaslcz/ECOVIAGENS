@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="global.css">
+    <title>Cadastro</title>
     <link rel="stylesheet" href="cadastro.css">
-    <title>Cadastro | EcoViagens</title>
+    <link rel="stylesheet" href="global.css">
 </head>
 <body>
     <header>
         <h1>EcoViagens</h1>
         <nav>
             <ul>
-                <li><a href="../index.html">Início</a></li>
+                <li><a href="index.html">Início</a></li>
             </ul>
         </nav>
     </header>
@@ -21,93 +21,67 @@
         <div class="container-cadastro">
             <div class="caixa-cadastro">
                 <div class="header-cadastro">
-                    <h2>Crie sua conta</h2>
-                    <p>Junte-se à nós e se torne um cliente.</p>
+                    <h2>Criar Conta</h2>
+                    <p>Junte-se a nós e torne-se um cliente</p>
                 </div>
 
-                <form onsubmit="cadastrarUsuario(event)">
+                <form onsubmit="cadastrarUsuario(event)" autocomplete="off">
                     <div class="input-group">
                         <input type="text" id="nome" placeholder=" " required>
                         <label>Nome Completo</label>
                         <div class="bar"></div>
+                        <span class="msg-erro" id="erro-nome"></span>
                     </div>
 
                     <div class="input-group">
                         <input type="text" id="usuario" placeholder=" " required>
                         <label>Usuário</label>
                         <div class="bar"></div>
+                        <span class="msg-erro" id="erro-usuario"></span>
                     </div>
 
                     <div class="input-group">
                         <input type="email" id="email" placeholder=" " required>
-                        <label>Email</label>
+                        <label>E-mail</label>
                         <div class="bar"></div>
+                        <span class="msg-erro" id="erro-email"></span>
                     </div>
 
                     <div class="input-group">
                         <input type="password" id="senha" placeholder=" " required>
                         <label>Senha</label>
                         <div class="bar"></div>
+                        <span class="toggle-password" onclick="toggleSenha('senha', this)">🙉</span>
+                        <span class="msg-erro" id="erro-senha"></span>
                     </div>
 
                     <div class="input-group">
                         <input type="password" id="confirmar" placeholder=" " required>
                         <label>Confirmar Senha</label>
                         <div class="bar"></div>
+                        <span class="toggle-password" onclick="toggleSenha('confirmar', this)">🙉</span>
+                        <span class="msg-erro" id="erro-confirmar"></span>
                     </div>
 
-                    <button type="submit" class="btn-cadastro-submit">FINALIZAR CADASTRO</button>
+                    <button type="submit" class="btn-cadastro-submit">Finalizar Cadastro</button>
+                    
+                    <span class="msg-erro" id="erro-final" style="text-align: center; margin-top: 20px; width: 100%; display: block;"></span>
                 </form>
 
                 <div class="link-rodape">
-                    Já tem conta? <a href="login.html">Fazer login</a>
+                    Já tem uma conta? <a href="login.html">Faça Login</a>
                 </div>
             </div>
 
             <div class="imagem-side-cadastro">
                 <div class="overlay-texto">
                     <span>ECOVIAGENS</span>
-                    <p>Sua jornada começa aqui.</p>
+                    <p>A sua próxima aventura começa aqui</p>
                 </div>
             </div>
         </div>
     </main>
-
-    <script>
-        async function cadastrarUsuario(event) {
-            event.preventDefault();
-
-            if (document.getElementById("senha").value != document.getElementById("confirmar").value) {
-                alert("As senhas não coincidem");
-                return;
-            }
-
-            const dados = {
-                nome: document.getElementById("nome").value,
-                usuario: document.getElementById("usuario").value,
-                email: document.getElementById("email").value,
-                senha: document.getElementById("senha").value
-            };
-
-            try {
-                const resposta = await fetch("http://localhost:5110/cadastro", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(dados)
-                });
-
-                if (resposta.ok) {
-                    alert("Cadastro realizado com sucesso!");
-                    window.location.href = "login.html";
-                } else {
-                    alert("Erro ao cadastrar.");
-                }
-            } catch (error) {
-                localStorage.setItem('dadosUsuario', JSON.stringify(dados));
-                alert("Simulação: Cadastro salvo localmente!");
-                window.location.href = "login.html";
-            }
-        }
-    </script>
+    <script src="cadastro.js"></script>
+    <script src="global.js"></script>
 </body>
 </html>
